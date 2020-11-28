@@ -1,13 +1,16 @@
 package CSA;
 
 import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 
 public class Library {
   public LibraryRandom random;
   public ArrayList<Book> Books;
   public ArrayList<Reader> Readers;
-  int Date;
+  long ts;
 
   public Library() {
     random = new LibraryRandom();
@@ -18,14 +21,16 @@ public class Library {
     System.out.println("Welcome to this 'Not-good Not-bad Librarian Software©'");
   }
   public void ChangeDate(String nameStr) {
-    // LocalDate date = LocalDate.parse(nameStr);
-    // System.out.println(date.toString());
-    // this.Date = (int) date.getTime();
-
-    // System.out.println("Date is now: " + this.Date);
+    LocalDate date = LocalDate.parse(nameStr);
+    this.ts = (long) date.atStartOfDay(ZoneId.systemDefault()).toEpochSecond();
   }
   @Override
   public String toString() {
-    return "ok";
+    String out = "";
+
+    out += "The date is " + new Date(this.ts * 1000).toLocaleString() + ".\n";
+    out += "And there are " + this.Readers.size() + " readers registered and " + this.Books.size() + " books in total.";
+
+    return out;
   }
 }
