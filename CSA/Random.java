@@ -18,9 +18,10 @@ public class Random {
 
         String wholeName = "";
         wholeName += fName[randomNumber(0,lenF)];
+        wholeName += " ";
         int i = randomNumber(0,10);
         if(i > 8) {
-            wholeName += "Jr.";
+            wholeName += "Jr. ";
         }
         wholeName += lName[randomNumber(0,lenL)];
 
