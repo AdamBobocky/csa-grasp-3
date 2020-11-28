@@ -75,4 +75,21 @@ public class LibraryRandom {
 
     }
 
+    public String randomBookName() {
+
+        String[] fWord = {};
+        String[] sWord = {};
+
+        int lenF = (fWord.length-1);
+        int lenS = (sWord.length-1);
+
+        String wholeName = "";
+        wholeName += fWord[randomNumber(0,lenF)];
+        wholeName += " ";
+        wholeName += sWord[randomNumber(0,lenS)];
+
+        return wholeName;        
+
+    }
+
 }
