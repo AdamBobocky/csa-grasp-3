@@ -29,7 +29,7 @@ Option B) desing library as dynamic system using Arrays/ArrayLists. Use randomiz
 
 Product
 
-✔️Task 1:
+✔️ Task 1:
 
 ✔️ - Create two readers in Library. And create two books.
 
@@ -39,29 +39,29 @@ Product
 
 ✔️ Task 2:
 
-- Borrow book1 to reader1
+✔️ - Borrow book1 to reader1
 
-- Borrow book2 to reader2
+✔️ - Borrow book2 to reader2
 
 ✔️ - Check fines
 
-- change current date to 5 6 2020;
+✔️ - change current date to 5 6 2020;
 
-Task 3:
+✔️ Task 3:
 
-- Reader1 Returns book1
+✔️ - Reader1 Returns book1
 
-- Check fines
+✔️ - Check fines
 
-- Change current date to 6 7 2020;
+✔️ - Change current date to 6 7 2020;
 
-- Print all Libraty fields in readable format
+✔️ - Print all Libraty fields in readable format
 
-Task 4:
+✔️ Task 4:
 
-- Reader2 Returns book2
+✔️ - Reader2 Returns book2
 
-- Check fines
+✔️ - Check fines
 
 Constrains
 

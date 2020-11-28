@@ -2,20 +2,37 @@ package CSA;
 
 public class Book {
   public String BookName;
+  public int BorrowerIndex;
   public String BorrowerName;
-  public long BorrowTS;
-  int ID;
 
-  public Book(int ID) {
+  private long BorrowTS;
+  private int ID;
+  private String ISBN;
+
+  public Book(int ID, String ISBN, String BookName) {
     this.ID = ID;
+    this.ISBN = ISBN;
+    this.BookName = BookName;
   }
   public int getID() {
     return this.ID;
   }
-  public double Fine(long CurrentTS){
-    return 0.00d;
+  public String getISBN() {
+    return this.ISBN;
   }
-  public double Return(long CurrentTS){
+  public double Fine(long CurrentTS) {
+    if(BorrowTS == 0){
+      return 0d;
+    }else{
+      return Math.floor(((CurrentTS - BorrowTS) / 24 / 60 / 60)) * 0.08d;
+    }
+  }
+  public void Borrow(int BorrowerIndex, String BorrowerName, long TS) {
+    this.BorrowerIndex = BorrowerIndex;
+    this.BorrowerName = BorrowerName;
+    this.BorrowTS = TS;
+  }
+  public double Return(long CurrentTS) {
     double cFine = Fine(CurrentTS);
 
     this.BorrowerName = "";
