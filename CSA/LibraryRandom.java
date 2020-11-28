@@ -1,7 +1,17 @@
 package CSA;
+
 import java.lang.Math;
 
-public class Random {
+public class LibraryRandom {
+    public int LatestID;
+
+    public LibraryRandom() {
+      LatestID = 0;
+    }
+
+    public int GetNextBookID(){
+      return LatestID++;
+    }
 
     public int randomNumber(int min, int max) {
         int integerNumber = (int)(Math.random()*(max-min+1)+min);
