@@ -40,4 +40,14 @@ public class Book {
 
     return cFine;
   }
+  @Override
+  public String toString() {
+    var out = "";
+
+    out += BookName + " (" + ID + "):\n";
+    out += " Borrower(" + BorrowerIndex + "): " + BorrowerName + "\n";
+    out += " ISNB: " + ISBN;
+
+    return out;
+  }
 }

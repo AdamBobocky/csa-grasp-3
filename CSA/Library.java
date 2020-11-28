@@ -61,7 +61,18 @@ public class Library {
     String out = "";
 
     out += "The date is " + new Date(this.ts * 1000).toLocaleString() + ".\n";
-    out += "And there are " + this.Readers.size() + " readers registered and " + this.Books.size() + " books in total.";
+    out += "And there are " + this.Readers.size() + " readers registered and " + this.Books.size() + " books in total.\n";
+    out += "List of the readers is:\n";
+
+    for(var i = 0; i < this.Readers.size(); i++){
+      out += this.Readers.get(i).toString() + "\n";
+    }
+
+    out += "List of the books is:\n";
+
+    for(var i = 0; i < this.Books.size(); i++){
+      out += this.Books.get(i).toString() + "\n";
+    }
 
     return out;
   }
