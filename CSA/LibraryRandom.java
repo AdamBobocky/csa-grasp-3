@@ -78,18 +78,14 @@ public class LibraryRandom {
 
     public String randomBookName() {
 
-        String[] fWord = {};
-        String[] sWord = {};
+        String[] fWord = {"War and Peace", "The Great Gatsby", "Lolita", "The Adventures of Huckleberry Finn", "Moby Dick", "Don Quixote", "One Hundred Years of Solitude", "Crime and Punishment", "The Odyssey", "Pride and Prejudice", "Wuthering Heights", "Invisible Man", "The Bible", "To Kill a Mockingbird"};
 
         int lenF = (fWord.length-1);
-        int lenS = (sWord.length-1);
 
-        String wholeName = "";
-        wholeName += fWord[randomNumber(0,lenF)];
-        wholeName += " ";
-        wholeName += sWord[randomNumber(0,lenS)];
+        String allName = "";
+        allName += fWord[randomNumber(0,lenF)];
 
-        return wholeName;        
+        return allName;
 
     }
 
