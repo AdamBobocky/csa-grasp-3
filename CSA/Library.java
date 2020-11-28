@@ -1,11 +1,13 @@
-import CSA.Book;
+package CSA;
+
+import java.util.ArrayList;
 
 public class Library {
-  public Book[] Books;
-  // public Reader[] Readers;
+  public ArrayList<Book> Books;
+  public ArrayList<Reader> Readers;
   int Date;
 
-  public static void main(String[] args) {
+  public Library() {
     System.out.println("Welcome to this 'Not-good Not-bad Librarian Software©'");
   }
   public void ChangeDate(int NewDate) {
@@ -15,6 +17,6 @@ public class Library {
   }
   @Override
   public String toString() {
-    return "";
+    return "ok";
   }
 }
