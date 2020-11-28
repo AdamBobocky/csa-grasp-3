@@ -14,8 +14,12 @@ public class LibraryRandom {
     }
 
     public int randomNumber(int min, int max) {
-        int integerNumber = (int)(Math.random()*(max-min+1)+min);
-        return integerNumber;
+      int integerNumber = (int)(Math.random()*(max-min+1)+min);
+      return integerNumber;
+  }
+
+    public int randomIndex(int len) {
+        return (int) (Math.random() * len);
     }
 
     public String randomName() {
@@ -23,17 +27,14 @@ public class LibraryRandom {
         String[] fName = {"Jeff", "Bill", "Mark", "Warren", "Larry", "Steve", "Elon", "Sergey", "Alice"};
         String[] lName = {"Bezos", "Gates", "Zuckerberg", "Buffet", "Ellison", "Ballmer", "Musk", "Brin", "Walton"};
 
-        int lenF = (fName.length-1);
-        int lenL = (lName.length-1);
-
         String wholeName = "";
-        wholeName += fName[randomNumber(0,lenF)];
+        wholeName += fName[randomIndex(fName.length)];
         wholeName += " ";
-        int i = randomNumber(0,10);
-        if(i > 8) {
+        double i = Math.random();
+        if(i > 0.8d) {
             wholeName += "Jr. ";
         }
-        wholeName += lName[randomNumber(0,lenL)];
+        wholeName += lName[randomIndex(lName.length)];
 
         return wholeName;
     }
