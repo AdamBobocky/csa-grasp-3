@@ -23,8 +23,8 @@ public class Runner {
       library.AddRandomBook();
     }
 
-    library.Borrow(1, 0);
-    library.Borrow(2, 1);
+    library.Borrow(1, 0); // Borrow book index 1 to borrower index 0
+    library.Borrow(2, 1); // Borrow book index 2 to borrower index 1
 
     library.ChangeDate("2020-06-05");
 
@@ -34,7 +34,7 @@ public class Runner {
 
     System.out.println("Task 3");
 
-    library.Return(1);
+    library.Return(1);  // Return book index 1
 
     library.PrintFines();
 
@@ -46,7 +46,7 @@ public class Runner {
 
     System.out.println("Task 4");
 
-    library.Return(2);
+    library.Return(2);  // Return book index 2
 
     library.PrintFines();
   }
