@@ -1,19 +1,23 @@
-package CSA;
+package CSA;  // Package to be imported in the main class
 
-public class Reader {
-  private String name;
+public class Reader { // Reader class
 
-  public Reader(String name) {
+  private String name;  // Name of the reader
+
+  public Reader(String name) {  // Constructor
     this.name = name;
   }
-  public String getName() {
+
+  public String getName() { // Name getter
     return this.name;
   }
-  public void setName(String name) {
+
+  public void setName(String name) {  // Name setter
     this.name = name;
   }
-  @Override
-  public String toString() {
+
+  @Override // Override other toString methods
+  public String toString() {  // Function that returns the reader name
     return "Reader name: " + name;
   }
 }

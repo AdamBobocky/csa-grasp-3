@@ -1,38 +1,44 @@
-package CSA;
+package CSA;  // Package to be imported in the main class
 
-public class Book {
-  public String BookName;
-  public int BorrowerIndex;
-  public String BorrowerName;
+public class Book { // Book class
 
-  private long BorrowTS;
-  private int ID;
-  private String ISBN;
+  public String BookName; // Name of the book
+  public int BorrowerIndex; // Index of the borrower
+  public String BorrowerName; // Name of the borrower
 
-  public Book(int ID, String ISBN, String BookName) {
+  private long BorrowTS;  // Time stamp of the borrow date
+  private int ID; // ID of the book
+  private String ISBN;  // ISBN of the book
+
+  public Book(int ID, String ISBN, String BookName) { // Constructor for the book object
     this.ID = ID;
     this.ISBN = ISBN;
     this.BookName = BookName;
   }
-  public int getID() {
+
+  public int getID() {  // Getter function that returns ID of the book object
     return this.ID;
   }
-  public String getISBN() {
+
+  public String getISBN() { // Getter function that returns ISBN of the book object
     return this.ISBN;
   }
-  public double Fine(long CurrentTS) {
+
+  public double Fine(long CurrentTS) {  // Function that calculates the fine based on the timestamp of return date
     if(BorrowTS == 0){
       return 0d;
     }else{
-      return Math.floor(((CurrentTS - BorrowTS) / 24 / 60 / 60)) * 0.08d;
+      return Math.floor(((CurrentTS - BorrowTS) / 24 / 60 / 60)) * 0.08d; // Floor the long so that an integer is returned
     }
   }
-  public void Borrow(int BorrowerIndex, String BorrowerName, long TS) {
+
+  public void Borrow(int BorrowerIndex, String BorrowerName, long TS) { // Constructor for the borrow object
     this.BorrowerIndex = BorrowerIndex;
     this.BorrowerName = BorrowerName;
     this.BorrowTS = TS;
   }
-  public double Return(long CurrentTS) {
+
+  public double Return(long CurrentTS) {  // Return the calculated fine
     double cFine = Fine(CurrentTS);
 
     this.BorrowerName = "";
@@ -40,8 +46,9 @@ public class Book {
 
     return cFine;
   }
-  @Override
-  public String toString() {
+
+  @Override // Override other toString methods
+  public String toString() {  // Return a message that gives all the important information
     var out = "";
 
     out += BookName + " (" + ID + "):\n";

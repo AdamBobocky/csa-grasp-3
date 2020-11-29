@@ -1,33 +1,38 @@
-package CSA;
+package CSA;  // Package to be imported in the main class
 
+// Import all tbe necessary packages
 import java.util.ArrayList;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
-public class Library {
+public class Library {  // Library class
+
   public ArrayList<Book> Books;
   public ArrayList<Reader> Readers;
 
   private long ts;
 
-  public Library() {
+  public Library() {  // Constructor for the Library object
     Books = new ArrayList<Book>();
     Readers = new ArrayList<Reader>();
 
     System.out.println("Welcome to this 'Not-good Not-bad Librarian Software©'");
   }
-  public void ChangeDate(String nameStr) {
+
+  public void ChangeDate(String nameStr) {  // Change the timestamp to the given date
     LocalDate date = LocalDate.parse(nameStr);
     this.ts = (long) date.atStartOfDay(ZoneId.systemDefault()).toEpochSecond();
   }
-  public Book AddRandomBook() {
+
+  public Book AddRandomBook() { // Add a random book to the book list, noting its ISBN and name
     Book WorkBood = new Book(Books.size(), LibraryRandom.randomISBN(), LibraryRandom.randomBookName());
 
     Books.add(WorkBood);
 
     return WorkBood;
   }
+
   public Book Borrow(int BookIndex, int ReaderIndex) {
     Book WorkBook = Books.get(BookIndex);
 
@@ -35,10 +40,12 @@ public class Library {
 
     return WorkBook;
   }
-  public double Return(int BookIndex) {
+
+  public double Return(int BookIndex) { // Return book function, outputs a fee
     return Books.get(BookIndex).Return(this.ts);
   }
-  public void PrintFines() {
+
+  public void PrintFines() {  // Function that prints fines for all borrowers
     boolean anyFines = false;
 
     for(var i = 0; i < Books.size(); i++){
@@ -56,8 +63,9 @@ public class Library {
       System.out.println("No fines found!");
     }
   }
+
   @Override
-  public String toString() {
+  public String toString() {  // Return a string that contains information about the library
     String out = "";
 
     out += "The date is " + new Date(this.ts * 1000).toLocaleString() + ".\n";

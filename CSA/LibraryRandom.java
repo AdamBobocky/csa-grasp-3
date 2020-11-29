@@ -1,38 +1,44 @@
-package CSA;
+package CSA;  // Package to be imported in the main class
 
+// Import the necessary packages
 import java.lang.Math;
 
-public class LibraryRandom {
-  public static int randomNumber(int min, int max) {
+public class LibraryRandom {  // LibraryRandom class
+  // Generates borrower names, book ISBNs and book names
+
+  public static int randomNumber(int min, int max) {  // Function that generates a random integer based on the bounds passed to it
     int integerNumber = (int)(Math.random()*(max-min+1)+min);
     return integerNumber;
   }
-  public static int randomIndex(int len) {
+
+  public static int randomIndex(int len) {  // Function that generates a random index number
     return (int) (Math.random() * len);
   }
-  public static String randomName() {
+
+  public static String randomName() { // Generate a random name of the reader 
+
     String[] fName = {"Jeff", "Bill", "Mark", "Warren", "Larry", "Steve", "Elon", "Sergey", "Alice"};
     String[] lName = {"Bezos", "Gates", "Zuckerberg", "Buffet", "Ellison", "Ballmer", "Musk", "Brin", "Walton"};
 
-    String wholeName = "";
-    wholeName += fName[randomIndex(fName.length)];
+    String wholeName = "";  // Placeholder string
+    wholeName += fName[randomIndex(fName.length)];  // Select a random first name and add it to the string
     wholeName += " ";
     double i = Math.random();
-    if(i > 0.8d) {
+    if(i > 0.8d) {  // An if loop that has a 20% probability of adding Jr. to the name of the reader
       wholeName += "Jr. ";
     }
-    wholeName += lName[randomIndex(lName.length)];
+    wholeName += lName[randomIndex(lName.length)];  // Select a random last name and add it to the string
 
-    return wholeName;
+    return wholeName; // Return the whole name string
   }
-  // Return a random ISBN, borrowed from a previous assignment
-  public static String randomISBN() {
+
+  public static String randomISBN() { // Return a random ISBN, borrowed from a previous assignment
+
     // Placeholder variables
     String temp = "";
     int sum = 0;
 
-    // A foor loop that generates random numbers for positions 1-9 and adds them to the temp string
-    for(int i = 10; i>1; i--) {
+    for(int i = 10; i>1; i--) { // A foor loop that generates random numbers for positions 1-9 and adds them to the temp string
       int placeholder = randomNumber(0,9);
       temp = temp + placeholder;
       sum = sum + (i*placeholder);
@@ -50,23 +56,25 @@ public class LibraryRandom {
       }
     }
 
-    // Create the checksum value
-    int difference = (k - sum);
+    int difference = (k - sum); // Create the checksum value
 
-    // Add the checksum value to the string containing the first 9 numbers
-    temp = temp + "-" + difference;
+    temp = temp + "-" + difference; // Add the checksum value to the string containing the first 9 numbers
 
-    // Return the complete string
-    return temp;
+    return temp; // Return the ISBN string
   }
-  public static String randomBookName() {
-    String[] fWord = {"War and Peace", "The Great Gatsby", "Lolita", "The Adventures of Huckleberry Finn", "Moby Dick", "Don Quixote", "One Hundred Years of Solitude", "Crime and Punishment", "The Odyssey", "Pride and Prejudice", "Wuthering Heights", "Invisible Man", "The Bible", "To Kill a Mockingbird"};
 
-    int lenF = (fWord.length-1);
+  public static String randomBookName() { // Pick a random book name from the list
+    String[] fWord = {"War and Peace", "The Great Gatsby", "Lolita",
+    "The Adventures of Huckleberry Finn", "Moby Dick", "Don Quixote",
+    "One Hundred Years of Solitude", "Crime and Punishment", "The Odyssey",
+    "Pride and Prejudice", "Wuthering Heights", "Invisible Man",
+    "The Bible", "To Kill a Mockingbird"};
+
+    int lenF = (fWord.length-1);  // Int that has the value of the maximal index
 
     String allName = "";
-    allName += fWord[randomNumber(0,lenF)];
+    allName += fWord[randomNumber(0,lenF)]; // Selects a book based on a random number
 
-    return allName;
+    return allName; // Return book name
   }
 }
